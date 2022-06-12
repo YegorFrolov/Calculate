@@ -24,23 +24,29 @@ def _info():
 
 def interface():
     init()
+
+#    inp = '(5+7i)+(5.5-2i)+(12-12i)-1'
+#    inp = '-i+(5.5-2i)'
+#    res = complexculator(inp)
+#    print(res)
+#    exit()
+
     add2log('Начало работы','<')
 
     while True:
-        inp = input('>>>')
+        inp = input('>>> ')
         add2log(inp,'>')
-        if inp.lower() == '/help':
-            _help()
-        elif inp.lower() == '/info':
-            _info()
-        elif input.lower() == '/exit':
-            break
-        elif input.lower() == '/quit':
-            break
-        else:
-            res = complexculator(inp)
-            print(res)
-            add2log(res,'<')
+        match inp.lower():
+            case '/help': _help()
+            case '/info': _info()
+            case '/exit': 
+                break
+            case '/quit': 
+                break
+            case _ : 
+                res = complexculator(inp)
+                print(res)
+                add2log(res,'<')
 
     print('Завершение работы')
     add2log('Завершение работы','<')
